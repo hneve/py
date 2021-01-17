@@ -1,3 +1,3 @@
 # py
 ....
-ya, well my project is here
+Python project to send logs with accelerometer and gps data to a restAPI 

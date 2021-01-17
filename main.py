@@ -48,8 +48,6 @@ while True:
         payload = {'device': DeviceID, 'type': log_type, **gps_dict, **mpu_dict}
         r = requests.post(rest_url, data=payload)
         send_rest = False
-        #print( r.text )
-        #print ( payload )
 
     if (time.time() >= (last_time + VAR_delay)):
         send_rest = True

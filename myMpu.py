@@ -6,12 +6,15 @@ import time
 
 sensor = mpu6050(0x68)
 
+###################################################################################
 def GetAccelerometerData():
     return sensor.get_accel_data()
 
+###################################################################################
 def GetGyroData():
     return sensor.get_gyro_data()
 
+###################################################################################
 def GetMPUdict():
     Adata = GetAccelerometerData()
     Gdata = GetGyroData()
@@ -27,6 +30,7 @@ def GetMPUdict():
         }
     return {**Astring, **GString }
 
+###################################################################################
 def Bumped(mpu_data):
     if (float(mpu_data['accx']) > 3):
         #print("x")
@@ -42,7 +46,6 @@ def Bumped(mpu_data):
 
     return False
 
-
-
+###################################################################################
 if __name__ == '__main__':
         print( GetMPUdict() )

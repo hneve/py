@@ -2,7 +2,7 @@
 Enkel mååte å hente "serienummeret" på cpu
 Fin måte å skille mellom enheter
 """
-
+###################################################################################
 def getserial():
     """ Extract serial from cpuinfo file """
   cpuserial = "0000000000000000"
@@ -17,10 +17,12 @@ def getserial():
  
   return cpuserial
 
+###################################################################################
 def getshortserial():
     """ Cut last 8 characters from serial """
     return getserial()[-8:]
 
+###################################################################################
 if __name__ == '__main__':  #hvis filen kjøres direkte ....
     print(getserial())
     print(getshortserial())
