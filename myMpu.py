@@ -1,6 +1,6 @@
 """
 Knighit of the MPU6050 accelerometer, 
-"""
+""" 
 from mpu6050 import mpu6050
 import time
 

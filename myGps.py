@@ -1,5 +1,5 @@
 """
-Gps fikse modul 
+Gps fikse modul  
 Note: 
 pip3 install gpsd-py3 :: https://github.com/MartijnBraam/gpsd-py3/
 gpsd daemon må kjøre! 
