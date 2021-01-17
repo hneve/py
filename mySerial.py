@@ -1,10 +1,12 @@
 """
-Enkel mååte å hente "serienummeret" på cpu
+Enkel måte å hente "serienummeret" på cpu
 Fin måte å skille mellom enheter
 """
 ###################################################################################
-def getserial():
-    """ Extract serial from cpuinfo file """
+def getserial():  
+  """ 
+  Extract serial from cpuinfo file 
+  """
   cpuserial = "0000000000000000"
   try:
     f = open('/proc/cpuinfo','r')
@@ -14,7 +16,7 @@ def getserial():
     f.close()
   except:
     cpuserial = "ERROR000000000"
- 
+  
   return cpuserial
 
 ###################################################################################
