@@ -6,28 +6,24 @@
 #
 #
 ###################################################################################
-import json  
-#import logging
+import json
 import time
-#time.sleep(60)  #service problems
-#import paho.mqtt.client as mqtt
 import requests
 from systemd import journal
+
 journal.write("pyMon Starting")
+
 from myGps import GetGpsDict, GpsFence, gpsInit
 from myMpu import GetMPUdict, Bumped
 from mySerial import getshortserial
 
 ###################################################################################
 VAR_delay = 10 #60*5    #Seconds between sending report
-bumb_debounce = 2 # minimum 2 seconds between bounce alerts
+bumb_debounce = 2       # minimum 2 seconds between bounce alerts
 rest_url  = 'https://hneve.com/log/insert.php'
-
-
 
 DeviceID = getshortserial()
 gpsInit()
-
 
 ###################################################################################
 send_rest = True
