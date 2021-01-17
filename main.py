@@ -18,7 +18,7 @@ from myMpu import GetMPUdict, Bumped
 from mySerial import getshortserial
 
 ###################################################################################
-VAR_delay = 10 #60*5    #Seconds between sending report
+VAR_delay = 60*5    #Seconds between sending report
 bumb_debounce = 2       # minimum 2 seconds between bounce alerts
 rest_url  = 'https://hneve.com/log/insert.php'
 
