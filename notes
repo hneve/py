@@ -1,0 +1,8 @@
+adafruit mpu6050 bibliotek 
+
+pip3 install gpsd-py3 :: https://github.com/MartijnBraam/gpsd-py3/
+gpsd daemon må kjøre!
+-sudo apt-get install gpsd gpsd-clients python-gps
+-sudo systemctl stop gpsd.socket
+-sudo systemctl disable gpsd.socket
+-sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
