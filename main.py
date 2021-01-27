@@ -46,8 +46,18 @@ while True:
 
     if send_rest:
         payload = {'device': DeviceID, 'type': log_type, **gps_dict, **mpu_dict}
-        r = requests.post(rest_url, data=payload)
+        try:
+            r = requests.post(rest_url, data=payload)
+        except requests.exceptions.RequestException as e:
+            journal.write("pyMon:" + e)
         send_rest = False
+
+try:
+    r = requests.get(url, params={'s': thing})
+except requests.exceptions.RequestException as e:  # This is the correct syntax
+    raise SystemExit(e)
+
+
 
     if (time.time() >= (last_time + VAR_delay)):
         send_rest = True
