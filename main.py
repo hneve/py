@@ -52,10 +52,6 @@ while True:
             journal.write("pyMon:" + e)
         send_rest = False
 
-try:
-    r = requests.get(url, params={'s': thing})
-except requests.exceptions.RequestException as e:  # This is the correct syntax
-    raise SystemExit(e)
 
 
 
