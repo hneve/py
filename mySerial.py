@@ -17,7 +17,7 @@ def getserial():
   except:
     cpuserial = "ERROR000000000"
   
-  return cpuserial
+  return cpuserial[-8:]
 
 ###################################################################################
 def getshortserial():
