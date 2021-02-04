@@ -26,10 +26,10 @@ wiringpi.digitalWrite(LEDsend, 0)
 
 sensor = mpu6050(0x68)
 
-report_freq = 60*5    #Seconds between sending report
-bump_debounce = 2   # minimum 2 seconds between bounce alerts
+report_freq = 60*5  #Seconds between sending report
+bump_debounce = 2   #  seconds between bounce alerts
 rest_url  = 'https://hneve.com/log/insert.php'
-tLedBlink = 1
+tLedBlink = 1      # Running blink frequency
 
 MPUoffax = 0
 MPUoffay = 0
@@ -73,7 +73,9 @@ def getserial():
   return cpuserial[-8:]
 ###################################################################################
 ####################################################################################
-""" GPS rutiner"""
+"""#################################################################################
+GPS rutiner
+#################################################################################"""
 ####################################################################################
 def gpsInit():
     """
@@ -143,8 +145,9 @@ def GpsFence(gps_data,lat_max=60,lat_min=59.5,lon_max=11,lon_min=9.7):
     return True
 ###################################################################################
 ####################################################################################
-""" MPU6050 rutiner """
-####################################################################################
+"""#################################################################################
+  MPU6050 rutiner 
+#################################################################################"""
 def MPUoffsets():
     tax = 0
     tay = 0
@@ -198,21 +201,22 @@ def GetMPUdict():
     return {**Astring, **GString }
 ###################################################################################
 def Bumped(mpu_data):
-    if ((float(mpu_data['accx']) - MPUoffax) > 3):
+    if ((float(mpu_data['accx']) - MPUoffax) > 4):
         #print("x")
         return True
 
-    if ((float(mpu_data['accy']) - MPUoffay) > 3):
+    if ((float(mpu_data['accy']) - MPUoffay) > 4):
         #print("y")
         return True
 
-    if ((float(mpu_data['accz']) - MPUoffaz) > 11):
+    if ((float(mpu_data['accz']) - MPUoffaz) > 4):
         #print("z")
         return True
 
     return False
-####################################################################################
-""" Hoved rutine"""
+"""#################################################################################
+ Hoved rutine
+#################################################################################"""
 
 while not isConnected(): 
     pass
